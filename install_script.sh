@@ -7,25 +7,21 @@
 
 RESET="\e[0m"; BOLD="\e[1m"; BLUE="\e[34m"; CYAN="\e[36m"
 GREEN="\e[32m"; RED="\e[31m"; WHITE="\e[97m"; YELLOW="\e[33m"
-PROJECT_DIR="/var/www/hugos-solutions"
+PROJECT_DIR="/var/www/nexasur"
 
 clear
 echo -e "${BLUE}${BOLD}"
 cat << 'EOF'
-  _   _                    _       
- | | | |_   _  __ _  ___ ( )___   
- | |_| | | | |/ _` |/ _ \|// __| 
- |  _  | |_| | (_| | (_) | \__ \ 
- |_| |_|\__,_|\__, |\___/  |___/ 
-               |___/               
-  ____        _       _   _                 
- / ___|  ___ | |_   _| |_(_) ___  _ __  ___ 
- \___ \ / _ \| | | | | __| |/ _ \| '_ \/ __|
-  ___) | (_) | | |_| | |_| | (_) | | | \__ \
- |____/ \___/|_|\__,_|\__|_|\___/|_| |_|___/
+  _   _           _____           
+ | \ | | _____  _/ ___|  ___  ___ 
+ |  \| |/ _ \ \/ /\___ \ / __|/ __|
+ | |\  |  __/>  <  ___) |\__ \ (_ |
+ |_| \_|\___/_/\_\|____(_)___/\___|
+                                    
+  Soluciones Tecnológicas · Estepona
 EOF
 echo -e "${CYAN}     ✦ Instalador Todo-en-Uno v4.0 ✦${RESET}"
-echo -e "${WHITE}   Estepona · Málaga · España${RESET}"
+echo -e "${WHITE}   NexaSur · Estepona · Málaga · España${RESET}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 sleep 1
 
@@ -72,8 +68,9 @@ cd "$PROJECT_DIR"
 
 cat > package.json << 'PKGJSON'
 {
-  "name": "hugos-solutions",
+  "name": "nexasur",
   "version": "4.0.0",
+  "description": "NexaSur - Soluciones Tecnológicas",
   "main": "server.js",
   "scripts": { "start": "node server.js" },
   "author": "Hugo",
@@ -135,8 +132,8 @@ db.exec(`
 
 // Seed admin
 if (!db.prepare("SELECT id FROM employees WHERE email=?").get("admin@hugos.com")) {
-  db.prepare("INSERT INTO employees (name,email,password,role) VALUES (?,?,?,?)").run("Hugo","admin@hugos.com",bcrypt.hashSync("admin1234",10),"admin");
-  db.prepare("INSERT INTO employees (name,email,password,role) VALUES (?,?,?,?)").run("Ana García","ana@hugos.com",bcrypt.hashSync("empleado1234",10),"employee");
+  db.prepare("INSERT INTO employees (name,email,password,role) VALUES (?,?,?,?)").run("Hugo","admin@nexasur.com",bcrypt.hashSync("admin1234",10),"admin");
+  db.prepare("INSERT INTO employees (name,email,password,role) VALUES (?,?,?,?)").run("Ana García","ana@nexasur.com",bcrypt.hashSync("empleado1234",10),"employee");
 }
 
 // Seed messages
@@ -309,7 +306,7 @@ cat > "$PROJECT_DIR/public/index.html" << 'HTMLEOF'
 <html lang="es">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Hugo's Solutions</title>
+<title>NexaSur — Soluciones Tecnológicas</title>
 <script src="/socket.io/socket.io.js"></script>
 <style>
 :root{--bg:#1a1208;--bg2:#221808;--card:#2a1f0e;--accent:#d4721a;--light:#f0a050;--text:#f5dfc0;--muted:#c4a07a;--white:#fff8f0;--border:rgba(240,160,80,0.15);--green:#7ac840}
@@ -502,8 +499,8 @@ footer span{color:var(--light)}
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <div class="logo-icon">H</div>
-    <div><span>Hugo's Solutions</span><small>Estepona · Málaga</small></div>
+    <div class="logo-icon">N</div>
+    <div><span>NexaSur</span><small>Estepona · Málaga</small></div>
   </div>
   <ul>
     <li><a href="#servicios">Servicios</a></li>
@@ -682,8 +679,8 @@ footer span{color:var(--light)}
 </div></section>
 
 <footer>
-  <p>© 2025 <span>Hugo's Solutions</span> · Estepona, Málaga · Todos los derechos reservados</p>
-  <p style="margin-top:.5rem;opacity:.6">Tecnología que protege y conecta</p>
+  <p>© 2025 <span>NexaSur</span> · Estepona, Málaga · Todos los derechos reservados</p>
+  <p style="margin-top:.5rem;opacity:.6">Tecnología que conecta el Sur</p>
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -1071,7 +1068,7 @@ cat > "$PROJECT_DIR/public/login.html" << 'LOGINEOF'
 <html lang="es">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Login — Hugo's Solutions</title>
+<title>Login — NexaSur</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0d1b2a;font-family:'Segoe UI',Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center}
@@ -1096,8 +1093,8 @@ body{background:#0d1b2a;font-family:'Segoe UI',Arial,sans-serif;min-height:100vh
 <body>
 <div class="wrap">
   <div class="logo">
-    <div class="logo-icon">H</div>
-    <h1>Hugo's Solutions</h1><p>Acceso para empleados</p>
+    <div class="logo-icon">N</div>
+    <h1>NexaSur</h1><p>Acceso para empleados</p>
   </div>
   <div class="card">
     <h2>🔒 Iniciar sesión</h2>
@@ -1131,7 +1128,7 @@ cat > "$PROJECT_DIR/public/panel.html" << 'PANELEOF'
 <html lang="es">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Panel — Hugo's Solutions</title>
+<title>Panel — NexaSur</title>
 <script src="/socket.io/socket.io.js"></script>
 <style>
 :root{--bg:#120d04;--sidebar:#1a1208;--card:#221808;--card2:#2a1f0e;--accent:#d4721a;--light:#f0a050;--text:#f5dfc0;--muted:#c4a07a;--white:#fff8f0;--border:rgba(240,160,80,0.15);--green:#7ac840;--red:#e05050;--yellow:#f0c040}
@@ -1254,8 +1251,8 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',Arial,sans-se
 
 <aside class="sidebar">
   <div class="sb-logo">
-    <div class="logo-icon">H</div>
-    <div><span>Hugo's Solutions</span><small>Panel interno</small></div>
+    <div class="logo-icon">N</div>
+    <div><span>NexaSur</span><small>Panel interno</small></div>
   </div>
   <nav class="sb-nav">
     <div class="sb-item active" onclick="showPage('dashboard')"><span class="ico">📊</span> Dashboard</div>
@@ -1581,7 +1578,7 @@ ok "panel.html generado"
 
 # ══════════════════════════════════════════════
 step "Configurando Nginx..."
-cat > /etc/nginx/sites-available/hugos-solutions << 'NGINXCONF'
+cat > /etc/nginx/sites-available/nexasur << 'NGINXCONF'
 server {
     listen 80;
     server_name localhost;
@@ -1595,7 +1592,7 @@ server {
     }
 }
 NGINXCONF
-ln -sf /etc/nginx/sites-available/hugos-solutions /etc/nginx/sites-enabled/
+ln -sf /etc/nginx/sites-available/nexasur /etc/nginx/sites-enabled/
 rm -f /etc/nginx/sites-enabled/default
 (nginx -t > /dev/null 2>&1 && systemctl restart nginx > /dev/null 2>&1) & spinner $! "Nginx"
 ok "Nginx activo"
